@@ -1,0 +1,13 @@
+version: 1.0
+runtime: nodejs12 
+build:
+  commands:
+    build:
+      - git clone https://github.com/OHIF/Viewers.git
+      - cd Viewers
+      - yarn config set workspaces-experimental true
+      - yarn install
+      - yarn run build
+run: 
+  command: cd platform/app
+  command: npx http-server dist
